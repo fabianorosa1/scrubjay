@@ -1,3 +1,4 @@
-# Scrubjay
+<img src="https://raw.githubusercontent.com/sstadelman/scrubjay/images/scrubjay.png" width=400/>
 
-A description of this package.
+# ScrubJay
+**ScrubJay is a UML generator for Swift modules**
