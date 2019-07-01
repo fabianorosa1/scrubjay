@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14838.16" systemVersion="19A471t" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="0.9.0">
+    <entity name="Attribute" representedClassName="Attribute" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <attribute name="isLet" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <relationship name="declType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Declaration"/>
+        <userInfo>
+            <entry key="umlType" value="UMLAttribute"/>
+        </userInfo>
+    </entity>
+    <entity name="Class" representedClassName="Class" parentEntity="Declaration" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLClass"/>
+        </userInfo>
+    </entity>
+    <entity name="DataType" representedClassName="DataType" parentEntity="Declaration" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLDataType"/>
+        </userInfo>
+    </entity>
+    <entity name="Declaration" representedClassName="Declaration" isAbstract="YES" parentEntity="Element" syncable="YES">
+        <relationship name="attributes" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Attribute"/>
+        <relationship name="operations" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Operation"/>
+    </entity>
+    <entity name="Element" representedClassName="Element" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="id_" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <attribute name="visibility" optional="YES" attributeType="String"/>
+        <relationship name="ownedElements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Element"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Declaration"/>
+    </entity>
+    <entity name="Enum" representedClassName="Enum" parentEntity="Declaration" syncable="YES" codeGenerationType="class">
+        <relationship name="cases" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="EnumCase"/>
+        <userInfo>
+            <entry key="umlType" value="UMLEnumeration"/>
+        </userInfo>
+    </entity>
+    <entity name="EnumCase" representedClassName="EnumCase" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLEnumerationLiteral"/>
+        </userInfo>
+    </entity>
+    <entity name="Generalization" representedClassName="Generalization" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <relationship name="source" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Element"/>
+        <relationship name="target" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Element"/>
+        <userInfo>
+            <entry key="umlType" value="UMLGeneralization"/>
+        </userInfo>
+    </entity>
+    <entity name="Interface" representedClassName="Interface" parentEntity="Declaration" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLInterface"/>
+        </userInfo>
+    </entity>
+    <entity name="Module" representedClassName="Module" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLModel"/>
+        </userInfo>
+    </entity>
+    <entity name="Operation" representedClassName="Operation" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <relationship name="parameters" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Parameter"/>
+        <userInfo>
+            <entry key="umlType" value="UMLOperation"/>
+        </userInfo>
+    </entity>
+    <entity name="Package" representedClassName="Package" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLPackage"/>
+        </userInfo>
+    </entity>
+    <entity name="Parameter" representedClassName="Parameter" parentEntity="Element" syncable="YES" codeGenerationType="class">
+        <attribute name="isReturn" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <userInfo>
+            <entry key="umlType" value="UMLParameter"/>
+        </userInfo>
+    </entity>
+    <entity name="Struct" representedClassName="Struct" parentEntity="Declaration" syncable="YES" codeGenerationType="class">
+        <userInfo>
+            <entry key="umlType" value="UMLDataType"/>
+        </userInfo>
+    </entity>
+    <elements>
+        <element name="Attribute" positionX="422.19921875" positionY="986.58203125" width="128" height="73"/>
+        <element name="Class" positionX="955.7265625" positionY="791.2734375" width="128" height="43"/>
+        <element name="DataType" positionX="856.84765625" positionY="867.3125" width="128" height="43"/>
+        <element name="Declaration" positionX="845.24609375" positionY="1048.1640625" width="128" height="73"/>
+        <element name="Element" positionX="979.98046875" positionY="1171.05859375" width="128" height="133"/>
+        <element name="Enum" positionX="1221.2265625" positionY="847.94140625" width="128" height="58"/>
+        <element name="EnumCase" positionX="1244.7578125" positionY="1043.51171875" width="128" height="43"/>
+        <element name="Generalization" positionX="1295.2421875" positionY="1175.91015625" width="128" height="73"/>
+        <element name="Interface" positionX="774.39453125" positionY="936.94140625" width="128" height="43"/>
+        <element name="Module" positionX="531.88671875" positionY="1527.6640625" width="128" height="43"/>
+        <element name="Operation" positionX="832.91015625" positionY="1495.71875" width="128" height="58"/>
+        <element name="Package" positionX="532.62109375" positionY="1380.6328125" width="128" height="43"/>
+        <element name="Parameter" positionX="996.859375" positionY="1508.9609375" width="128" height="58"/>
+        <element name="Struct" positionX="1053.19921875" positionY="727.66015625" width="128" height="43"/>
+    </elements>
+</model>
